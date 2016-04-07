@@ -10,9 +10,26 @@ var flash = require('connect-flash');
 var path = require('path');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/myBlog')
 
-//var fishRoutes = require('./routes/fish');
+var uriUtil = require('mongodb-uri');
+
+var options = {
+server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};  
+var mongodbUri = process.env.MONGOLAB_URI || "mongodb://localhost/myBlog";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongooseUri, options);
+
+var port = process.env.PORT || 7000;
+
+var tweetRoutes = require('./routes/tweets');
+
+var User = require('./models/user');
+
+var Post = require('./models/post');
+var postRouter = require('./routes/posts');
 
 app.use(express.static('client'));
 
@@ -42,9 +59,9 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(session({
  secret: 'ilovescotchscotchyscotchscotch'
-})); // session secret
+}));
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(passport.session());
 app.use(session({
  cookie: {
    maxAge: 60000
@@ -60,23 +77,20 @@ require('./routes/user.js')(app, passport);
 
 
 app.use(function(req, res, next){
-    var user = req.user || "no user";  // every request to server will check for a user
-    console.log(user);
+    var user = req.user || "no user";
     next();
 });
 
 app.use('/img', express.static('img'));
-
 app.use('/public', express.static('public'));
-
-//app.use('/api/fish', fishRoutes);
-
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.use('/api', postRouter);
+app.use('/api/tweets', tweetRoutes);
 
-var port = process.env.PORT || 7000;
+
 var router = express.Router();
 
 router.use(function(req, res, next){
