@@ -98,6 +98,5 @@ router.use(function(req, res, next){
   next();
 });
 
-app.listen(port, function(){
-  console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 burning 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 \n🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 on " + port + " 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
-});
+app.listen(port);
+console.log('magic happens on ' + port);

@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
     local            : {       // object called 'local'; this is known as a 'Local' Authentication Strategy
         email        : String,
         password     : String,
-        username     : String,
+        username     : {type: String, unique: true},
         role         : String,
         loggedIn     : Boolean,
         posts        : [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}],

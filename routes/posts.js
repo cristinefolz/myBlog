@@ -9,18 +9,22 @@ router.route('/posts')
 
     var post = new Post();
 
+    console.log(req.body, 'THIS IS REQ BODY!!!!!!!!!!!!!!!');
+
     post.postSummary = req.body.postSummary || 'none';
     post.postTitle = req.body.postTitle || 'none';
     post.postImage = req.body.postImage || 'none';
     post.postContent = req.body.postContent || 'none';
     post.postDate = new Date().getTime();
-    post.author = req.user ? req.user._id : "123453868878597159";
+    post.author = req.user ? req.user._id : "5706e1e4310436d7b284b51d";
 
-    console.log(post.author);
+    console.log(post);
 
-    post.save(function(err, post, next){
+    post.save(function(err, post){
       if(err){
+        console.log(err);
         res.status(500).send(err, 'Something broke!');
+        next();
       } else {
         res.json(post);
       }
@@ -65,7 +69,7 @@ router.route('/posts/:post_id')
         post.postImage = req.body.postImage ? req.body.postImage : post.postImage;
         post.postContent = req.body.postContent ? req.body.postContent : post.postContent;
 
-        post.save(function(err, newPost, next){
+        post.save(function(err, newPost){
           if(err){
             res.status(500).send(err, 'Something broke!');
             next();
@@ -90,14 +94,14 @@ router.route('/posts/:post_id')
   })
 
 router.route('/posts/:post_id/comment')
-    .post(function(req, res){
+    .post(function(req, res, next){
         var comment = new Comment();
 
         comment.body = req.body.body ? req.body.body : comment.body;
-        comment.user = req.user._id;
+        comment.user = req.user ? req.user._id : "5706e1e4310436d7b284b51d";
         comment.post = req.params.post_id;
 
-        comment.save(function(err, comm, next){
+        comment.save(function(err, comm){
             if (err){
                 res.status(500).send(err, 'Something broke!');
                 next();
