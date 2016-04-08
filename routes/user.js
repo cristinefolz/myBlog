@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
 
     app.post('/signup', passport.authenticate('local-signup', {  // creates a new user in database; also hands off to passport to do authentication with
         successRedirect: '/', // redirect to the secure profile section
-        failureRedirect: '/signup', // redirect back to the signup page if there is an error
+        failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
 

@@ -24,6 +24,7 @@ var BlogApp = require('./BlogComps/BlogApp');
 var Home = require('./Home');
 var About = require('./About');
 var Contact = require('./Contact');
+var Login = require('./Login');
 
 require('./stylesheets/main.scss');
 
@@ -58,6 +59,9 @@ var App = React.createClass({
             break;
         case 'Contact':
             return <Contact/>
+            break;
+        case 'Login/SignUp':
+            return <Login/>
             break;
         default:
             return <Home/>

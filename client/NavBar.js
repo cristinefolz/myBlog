@@ -1,6 +1,6 @@
 var React = require('react');
 
-var links = ['Home', 'About', 'Blog', 'Contact'];
+var links = ['Home', 'About', 'Blog', 'Contact', 'Login/SignUp'];
 
 var NavBar = React.createClass ({
   
@@ -24,16 +24,7 @@ var NavBar = React.createClass ({
             </ul>
         </nav>
 
-        <div class="navbar-header page-scroll">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar">a</span>
-                      <span class="icon-bar">b</span>
-                      <span class="icon-bar">c</span>
-                  </button>
-              </div>
-
-      </div> 
+      </div>
       )
   }
 });
