@@ -8,10 +8,9 @@
     //        BlogForm
     //    SingleBlogData
     //        SingleBlogDetails
+    //            CommentList
     //            CommentFormData
-    //            CommentForm
-    //        CommentList
-    //            CommentCard
+    //                CommentForm
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -51,7 +50,7 @@ var BlogApp = React.createClass({
       return <BlogFormData toggleActiveComp={ this.toggleActiveComp }/>
 
     } else if (this.state.activeComponent === 'onePost') {
-      return <SingleBlogDataData id={ this.state.activePostId }/>
+      return <SingleBlogData id={ this.state.activePostId }/>
       
     } else if (this.state.activeComponent === 'editPost') {
       return <EditBlogData id={ this.state.activePostId } toggleActiveComp={ this.toggleActiveComp }/>

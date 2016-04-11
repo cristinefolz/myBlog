@@ -8,20 +8,31 @@
     //        BlogForm
     //    SingleBlogData
     //        SingleBlogDetails
+    //            CommentList
     //            CommentFormData
-    //            CommentForm
-    //        CommentList
-    //            CommentCard
+    //                CommentForm
 
 var React = require('react');
-var ReactDOM = require('react-dom');
 
 var CommentForm = React.createClass({
 
   render: function() {
       return (
         <div>
-          <h3> Comment Form!! </h3>
+
+            <form className="col-xs-6" onSubmit={ this.props.handleCommentSubmit }>
+                <h3 className="divider">Leave a Comment></h3>
+
+                <fieldset className="form-group">
+                    <label >Comment</label>
+                    <textarea onChange={ props.handleCommentChange } value={ this.props.body } type="text"
+                     className="form-control" placeholder="Your Comment"></textarea>
+                </fieldset>
+
+                <button className="btn btn-default" type="submit">Leave Comment</button>
+
+            </form>
+
         </div>
         )
   }

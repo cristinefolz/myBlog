@@ -8,10 +8,9 @@
     //        BlogForm
     //    SingleBlogData
     //        SingleBlogDetails
+    //            CommentList
     //            CommentFormData
-    //            CommentForm
-    //        CommentList
-    //            CommentCard
+    //                CommentForm
 
 var React = require('react');
 var ReactDOM = require('react-dom');

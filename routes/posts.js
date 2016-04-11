@@ -132,7 +132,6 @@ router.route('/posts/:post_id/comment')
           .exec(function(err, goal, next){
           if (err) {
             res.status(500).send(err, 'Something broke!');
-            next();
           } else {
             res.json(goal);
           }

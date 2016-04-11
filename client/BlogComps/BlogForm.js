@@ -8,10 +8,9 @@
     //        BlogForm
     //    SingleBlogData
     //        SingleBlogDetails
+    //            CommentList
     //            CommentFormData
-    //            CommentForm
-    //        CommentList
-    //            CommentCard
+    //                CommentForm
 
 var React = require('react');
 
@@ -42,8 +41,8 @@ function BlogForm(props) {
 
                 <fieldset className="form-group">
                     <label for="formGroupExampleInput4">Post Content</label>
-                    <input onChange={ props.handlePostContentChange } value={ props.postContent } type="text"
-                    id="formGroupExampleInput4" className="form-control" placeholder="Your Blog"/>
+                    <textarea onChange={ props.handlePostContentChange } value={ props.postContent } type="text"
+                    id="formGroupExampleInput4" className="form-control" placeholder="Your Blog"></textarea>
                 </fieldset>
 
                 <button className="btn btn-default" type="submit">Submit</button>

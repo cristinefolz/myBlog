@@ -71,11 +71,13 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
+      <Notifier>
         <NavBar setActiveComponent={ this.setActiveComponent }/>
           <div>
             { this.showWhichComponent() }
           </div>
         <Footer />
+      </Notifier>
       </div>           
     )
   }
