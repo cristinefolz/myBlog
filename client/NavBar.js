@@ -19,7 +19,7 @@ var NavBar = React.createClass ({
 
         <nav className="navbar navbar-light bg-faded">
           <a className="navbar-brand" href="/">CRISTINE FOLZ</a>
-            <ul className="nav navbar-nav">
+            <ul className="nav navbar-nav navbar-right">
               { link }
             </ul>
         </nav>

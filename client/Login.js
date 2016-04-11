@@ -44,8 +44,8 @@ var Login = React.createClass ({
           </form>
 
              
-          </div>
-         </div>
+        </div>
+        </div>
       </div>
       )
   }

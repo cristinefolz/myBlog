@@ -14,20 +14,27 @@
     //            CommentCard
 
 var React = require('react');
-var ReactDOM = require('react-dom');
-
 var BlogCard = require('./BlogCard');
 
-var BlogList = React.createClass({
+function BlogList(props){
+  var allPosts = props.postArray.map(post => {
+    return (
+      <BlogCard
+        getId={ props.getId }
+        postTitle={ post.postTitle }
+        postSummary={ post.postSummary }
+        postImage={ post.postImage }
+        postContent={ post.postContent }
+        date={ post.date }
+        />
+    )
+  })
 
-  render: function() {
-      return (
-        <div>
-          <BlogCard />
-          <h3> BlogList!! </h3>
-        </div>
-        )
-  }
-});
+  return (
+    <div className="container post-list">
+      { allPosts }
+    </div>
+    )
+};
 
 module.exports = BlogList;
