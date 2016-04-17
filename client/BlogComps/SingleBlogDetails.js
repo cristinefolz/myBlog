@@ -54,27 +54,30 @@ var SingleBlogDetails = React.createClass({
   },
 
   render: function() {
+    console.log(this.props.commentArray, 'commentArray in SingleBlogDetails');
       return (
         <div>
 
-          <button className="btn btn-default" onClick={ this.deleteSinglePostFromServer.bind(null, this.props.id) }> Delete Post </button>
-          <div className="container col-xs-10 col-xs-offset-2">
-            <h2 className="divider">{ this.props.onePost.postTitle }></h2>
-              <p> { this.props.onePost.postSummary } </p>
-              <p> Posted on <b>{ this.props.onePost.date}</b> </p>
+          <section className="container">
+            <div>
+              <h2 className="divider">{ this.props.onePost.postTitle }</h2>
+                <p> { this.props.onePost.postSummary } </p>
+                <p> { this.props.onePost.postContent } </p>
+                <p> Posted on <b>{ this.props.onePost.date}</b> </p>
 
-                <div className="col-xs-offset-10">
-                  <a className="btn btn-default btn-sm edit-post" 
-                  onClick={ this.props.getId.bind(null, 'editOnePost', this.props.id) }>
-                  <span ></span>
-                  </a>
-                </div>
-                
-          </div>
-
-            <CommentList commentArray={ this.props.commentArray } />
-            <CommentFormData id={ this.props.id } loadOnePostFromServer={ this.loadOnePostFromServer } 
-            loadCommentsFromServer={ this.props.loadCommentsFromServer } />
+                  <div className="col-xs-offset-10">
+                    <a className="btn btn-default btn-sm edit-post pencil" 
+                    onClick={ this.props.getId.bind(null, 'editOnePost', this.props.id) }>
+                    <span className="glyphicon glyphicon-pencil pencil"></span>
+                    <button className="btn btn-default" onClick={ this.deleteSinglePostFromServer.bind(null, this.props.id) }> Delete Post </button>
+                    </a>
+                  </div>           
+            </div>
+          </section>
+            
+          <CommentList commentArray={ this.props.commentArray } />
+          <CommentFormData id={ this.props.id } loadOnePostFromServer={ this.props.loadOnePostFromServer } 
+          loadCommentsFromServer={ this.props.loadCommentsFromServer } />
 
         </div>
         )

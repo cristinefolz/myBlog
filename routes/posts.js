@@ -24,7 +24,6 @@ router.route('/posts')
       if(err){
         console.log(err);
         res.status(500).send(err, 'Something broke!');
-        next();
       } else {
         res.json(post);
       }
@@ -39,7 +38,6 @@ router.route('/posts')
     .exec(function(err, posts){
       if(err){
         res.status(500).send(err, 'Something broke!');
-        next();
       } else {
         res.json(posts);
       }
@@ -51,7 +49,6 @@ router.route('/posts/:post_id')
     Post.findById(req.params.post_id, function(err, post){
       if(err){
         res.status(500).send(err, 'Something broke!');
-        next();
       } else {
         res.json(post);
       }
@@ -62,7 +59,6 @@ router.route('/posts/:post_id')
     Post.findById(req.params.post_id, function(err, post, next){
       if(err){
         console.log(err);
-        next();
       } else {
         post.postSummary = req.body.postSummary ? req.body.postSummary : post.postSummary;
         post.postTitle = req.body.postTitle ? req.body.postTitle : post.postTitle;
@@ -72,7 +68,6 @@ router.route('/posts/:post_id')
         post.save(function(err, newPost){
           if(err){
             res.status(500).send(err, 'Something broke!');
-            next();
           } else {
             res.json({notice: 'post updated'});
           }
@@ -86,7 +81,6 @@ router.route('/posts/:post_id')
       if(err){
         console.log(err);
         res.status(500).send(err, 'Something broke!');
-        next();
       } else {
         res.json({notice: 'post was successfully deleted'});
       }
@@ -104,12 +98,10 @@ router.route('/posts/:post_id/comment')
         comment.save(function(err, comm){
             if (err){
                 res.status(500).send(err, 'Something broke!');
-                next();
             } else {
-                Post.findById(req.params.post_id, function(err, post, next){
+                Post.findById(req.params.post_id, function(err, post){
                     if(err){
                         res.status(500).send(err, 'Something broke!');
-                        next();
                     } else {
                         post.comments.push(comm._id);
                         post.save();
@@ -129,7 +121,7 @@ router.route('/posts/:post_id/comment')
              select: 'local.email',
               }
             })
-          .exec(function(err, goal, next){
+          .exec(function(err, goal){
           if (err) {
             res.status(500).send(err, 'Something broke!');
           } else {

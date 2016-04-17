@@ -29,9 +29,10 @@ var SingleBlogData = React.createClass({
 
   loadOnePostFromServer: function() {
     var self = this;
+    console.log(this.props.id, "ID IN LOAD ONE POST")
 
     $.ajax({
-      url: 'api/posts/' + this.props.id,
+      url: '/api/posts/' + this.props.id,
       method: 'GET'
     }).done(function(data){
       self.setState({ onePost: data })
@@ -40,12 +41,14 @@ var SingleBlogData = React.createClass({
 
   loadCommentsFromServer: function(){
     var self = this;
+    console.log('trying to load comments from server', this.props.id);
 
     $.ajax({
-      url: 'api/posts/' + this.props.id + '/comment',
+      url: '/api/posts/' +  this.props.id + '/comment',
       method: 'GET'
     }).done(function(data){
-      self.setState({ comments: data })
+      console.log(data, 'data in success');
+      self.setState({ comments: data.comments });
     })
   },
 

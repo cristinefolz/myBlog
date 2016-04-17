@@ -32,15 +32,17 @@ var BlogListData = React.createClass({
       url: '/api/posts',
       method: 'GET'
     }).done(function(posts){
-      self.setState({ postArray: posts})
+      self.setState({ postArray: posts});
+      console.log(posts, 'initial loaded posts')
     })
   },
 
   componentDidMount: function(){
-    this.loadPostsFromServer();
+    this.loadPostsFromServer()
   },
 
   render: function() {
+    console.log(this.state.postArray, 'postArray upon initial load');
       return this.state.postArray ? <BlogList postArray={ this.state.postArray } getId={ this.props.getId } /> : null;
   }
 

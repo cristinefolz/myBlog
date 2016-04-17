@@ -17,16 +17,15 @@ var BlogCard = require('./BlogCard');
 
 function BlogList(props){
   var allPosts = props.postArray.map(post => {
-    return (
-      <BlogCard
+    return <BlogCard
         getId={ props.getId }
+        id={ post._id }
+        key={ post._id }
         postTitle={ post.postTitle }
         postSummary={ post.postSummary }
         postImage={ post.postImage }
         postContent={ post.postContent }
-        date={ post.date }
-        />
-    )
+        date={ post.date }/>
   })
 
   return (

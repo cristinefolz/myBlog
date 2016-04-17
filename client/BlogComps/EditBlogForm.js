@@ -18,8 +18,8 @@ function EditBlogForm(props) {
       return (
         <div>
           <div className="container">
-            <form className="col-xs-8 col-xs-offset-2" onSubmit={ props.handleUpdatePostSubmit }>
-                <h1 className="divider">Update this Post Post></h1>
+            <form className="col-xs-8 col-xs-offset-2" onSubmit={ props.handlePostUpdateSubmit }>
+                <h1 className="divider">Update this Post></h1>
 
                 <fieldset className="form-group">
                     <label >Post Title</label>

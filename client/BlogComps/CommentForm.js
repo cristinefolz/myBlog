@@ -21,11 +21,11 @@ var CommentForm = React.createClass({
         <div>
 
             <form className="col-xs-6" onSubmit={ this.props.handleCommentSubmit }>
-                <h3 className="divider">Leave a Comment></h3>
+                <h3 className="divider">Leave a Comment</h3>
 
                 <fieldset className="form-group">
                     <label >Comment</label>
-                    <textarea onChange={ props.handleCommentChange } value={ this.props.body } type="text"
+                    <textarea onChange={ this.props.handleCommentChange } value={ this.props.body } type="text"
                      className="form-control" placeholder="Your Comment"></textarea>
                 </fieldset>
 

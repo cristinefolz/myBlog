@@ -3,44 +3,44 @@ var React = require('react');
 var Login = React.createClass ({
   render: function (){
     return (
-      <div class = "container my-container">
-        <div class = "row">
+      <div className = "container my-container">
+        <div className = "row">
     
     
-        <div class = "container col-lg-6 col-lg-offset-1 col-xs-10 col-xs-offset-1">
+        <div className = "container col-lg-6 col-lg-offset-1 col-xs-10 col-xs-offset-1">
 
-          <form action="/login" method="POST" role="form" class = "row">
-            <legend class="legend line">Login</legend>
-              <div class="form-group">
-                <label for="" class="legend">Email</label>
-                  <input name="email" type="email" class="form-control" id="" placeholder="Email goes here"></input>
+          <form action="/login" method="POST" role="form" className = "row">
+            <legend className="legend line">Login</legend>
+              <div className="form-group">
+                <label className="legend">Email</label>
+                  <input name="email" type="email" className="form-control" id="" placeholder="Email goes here"></input>
                   <br></br>
-                <label for="" class="legend">Password</label>
-                  <input name="password" type="password" class="form-control" id="" placeholder="Password goes here"></input>
+                <label className="legend">Password</label>
+                  <input name="password" type="password" className="form-control" id="" placeholder="Password goes here"></input>
                   <br></br>
                 </div>
-                <button type="submit" class="legend button-color">Submit</button>
+                <button type="submit" className="legend button-color">Submit</button>
           </form>
 
        
           <br></br>
          
 
-          <form action="/signup" method="POST" role="form" class= 'row'>
-            <legend class="legend line">Sign Up</legend>
+          <form action="/signup" method="POST" role="form" className= 'row'>
+            <legend className="legend line">Sign Up</legend>
 
-              <div class="form-group">
-                <label class="legend" for="">Choose a Username</label>
-                  <input name="username" type="username" class="form-control" id="" placeholder="Username"></input>
+              <div className="form-group">
+                <label className="legend">Choose a Username</label>
+                  <input name="username" type="username" className="form-control" id="" placeholder="Username"></input>
                   <br></br>
-                <label class="legend" for="">Email</label>
-                  <input name="email" type="email" class="form-control" id="" placeholder="Email"></input>
+                <label className="legend">Email</label>
+                  <input name="email" type="email" className="form-control" id="" placeholder="Email"></input>
                   <br></br>
-                <label class="legend" for="">Password</label>
-                  <input name="password" type="password" class="form-control" id="" placeholder="Password"></input>
+                <label className="legend">Password</label>
+                  <input name="password" type="password" className="form-control" id="" placeholder="Password"></input>
                   <br></br>
               </div>
-              <button type="submit" class="legend button-color">Create</button>
+              <button type="submit" className="legend button-color">Create</button>
           </form>
 
              

@@ -80,7 +80,6 @@ var EditBlogData = React.createClass({
 
     console.log(postData);
     this.submitPostUpdateToServer(postData);
-    this.setState({ postTitle: '', postSummary: '', postImage: '', postContent: '' });
 
     alert('You have updated this Post!');
   },
@@ -93,7 +92,7 @@ var EditBlogData = React.createClass({
       type: 'PUT',
       data: postData,
       success: function(data){
-        this.props.ToggleActiveComp('postList');
+        this.props.toggleActiveComp('postList');
         this.context.sendNotification('Updated the Post!');
       }.bind(this),
       error: function(xhr, status, err){

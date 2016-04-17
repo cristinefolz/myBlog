@@ -45,7 +45,6 @@ var Notifier = React.createClass({
              message={ this.state.message }
              autoHideDuration={ 4000 }
              onRequestClose={ this.handleRequestClose } />
-        }
         </div>
     )
   }

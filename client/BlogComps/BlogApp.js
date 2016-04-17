@@ -26,11 +26,12 @@ var BlogApp = React.createClass({
   getInitialState: function() {
     return {
       activeComponent: 'postList',
-      activePostId: null,
+      activePostId: ''
     }
   },
 
   getId: function(whichComponentState, id){
+    console.log(id, 'id returned via getId');
     if(whichComponentState === 'showOnePost'){
       return this.setState({ activePostId: id, activeComponent: 'onePost' })
     } else if(whichComponentState === 'editOnePost'){
@@ -50,7 +51,7 @@ var BlogApp = React.createClass({
       return <BlogFormData toggleActiveComp={ this.toggleActiveComp }/>
 
     } else if (this.state.activeComponent === 'onePost') {
-      return <SingleBlogData id={ this.state.activePostId }/>
+      return <SingleBlogData getId={ this.getId } id={ this.state.activePostId } toggleActiveComp={ this.toggleActiveComp }/>
       
     } else if (this.state.activeComponent === 'editPost') {
       return <EditBlogData id={ this.state.activePostId } toggleActiveComp={ this.toggleActiveComp }/>
@@ -78,6 +79,7 @@ var BlogApp = React.createClass({
           <div className="container post-list">
             <BlogPostViewToggler toggleActiveComp={ this.toggleActiveComp }/>
             { this.showComp() }
+            <br />
           </div>
 
         </div>

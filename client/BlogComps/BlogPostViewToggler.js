@@ -6,7 +6,7 @@ var BlogPostViewToggler = React.createClass ({
 
     return (
       <div>
-        <section className="container col-xs-10 display">
+        <section className="container col-xs-12 display">
           <a className="post-toggler"
           onClick={ this.props.toggleActiveComp.bind(null, 'postList') }>
           <h1 className="display-3"> Blog List </h1></a>
