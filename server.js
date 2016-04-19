@@ -13,6 +13,8 @@ var mongoose = require('mongoose');
 
 var uriUtil = require('mongodb-uri');
 
+// var fakeStuff = require('./data-faker').makeData();
+
 var options = {
 server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
@@ -55,7 +57,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 
 }
-
 
 app.use(session({
  secret: 'ilovescotchscotchyscotchscotch'
